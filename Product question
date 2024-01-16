@@ -1,0 +1,7 @@
+Design a class Product with productid,productname,productprice as instance variable
+And make following members methods
+a) Zero argument and parameterized constructors ,print method
+b) Override String toString() to return values of Product into a single string object
+c) Write code for counting how many object of Product class created using static
+block,initializer block,static variable
+d) Write a static method that will return how many object created
