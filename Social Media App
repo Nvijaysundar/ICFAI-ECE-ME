@@ -1,0 +1,27 @@
+You are a software engineer working on a new feature for a social media application. The feature involves recommending new friends to users based on common interests. A crucial part of this feature is efficiently managing a list of interests for each user, ensuring no duplicate interests are stored and the interests can be quickly compared between users.
+
+Scenario:
+
+To handle the user interests, you decide to use a Java Set collection. This choice is made to leverage the Set's characteristics, namely its inability to contain duplicate elements and its various implementations suitable for different scenarios.
+
+Task:
+
+Implementing the User Class:
+
+Create a User class.
+Within the User class, define a private instance variable interests of type Set<String> to store the user's interests.
+Implement a constructor for the User class that initializes the interests set.
+Implement methods to add and remove interests from the interests set.
+Choosing the Right Set Implementation:
+
+Decide and justify the choice of a specific Set implementation (HashSet, LinkedHashSet, or TreeSet) for the interests set.
+Avoiding Duplicates:
+
+Implement a method addInterest(String interest) in the User class that adds a new interest to the interests set. The method should ensure no duplicate interests are added.
+Recommendation Feature:
+
+Implement a method recommendFriends(User otherUser) that compares the interests of the current user with another user and returns a boolean indicating whether they have common interests.
+Demonstration:
+
+In a main method, create several User objects with different sets of interests.
+Demonstrate the functionality of addInterest and recommendFriends methods.
