@@ -25,3 +25,47 @@ Demonstration:
 
 In a main method, create several User objects with different sets of interests.
 Demonstrate the functionality of addInterest and recommendFriends methods.
+
+
+Sample Input and Output for User Class Methods
+1. Adding Interests
+Method: addInterest(String interest)
+
+Input: "Basketball"
+
+Output: Interest added: Basketball
+
+Input: "Reading"
+
+Output: Interest added: Reading
+
+Input: "Basketball" (duplicate)
+
+Output: Interest already exists: Basketball
+
+2. Removing Interests
+Method: removeInterest(String interest)
+
+Input: "Reading"
+
+Output: Interest removed: Reading
+
+Input: "Cooking" (not in set)
+
+Output: Interest not found: Cooking
+
+3. Recommending Friends
+Method: recommendFriends(User otherUser)
+
+Setup:
+
+User 1 Interests: ["Basketball", "Movies", "Coding"]
+User 2 Interests: ["Movies", "Photography", "Travel"]
+User 3 Interests: ["Gardening", "Cooking", "Reading"]
+Input: Comparison between User 1 and User 2
+
+Output: Common interests found: [Movies]. Recommendation: Yes.
+
+Input: Comparison between User 1 and User 3
+
+Output: No common interests. Recommendation: No.
