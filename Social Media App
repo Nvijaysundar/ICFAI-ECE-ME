@@ -70,3 +70,5 @@ Output: Common interests found: [Movies]. Recommendation: Yes.
 Input: Comparison between User 1 and User 3
 
 Output: No common interests. Recommendation: No.
+
+Design a code based on scenario
