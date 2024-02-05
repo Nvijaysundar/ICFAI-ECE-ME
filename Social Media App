@@ -2,6 +2,7 @@ You are a software engineer working on a new feature for a social media applicat
 
 Scenario:
 
+
 To handle the user interests, you decide to use a Java Set collection. This choice is made to leverage the Set's characteristics, namely its inability to contain duplicate elements and its various implementations suitable for different scenarios.
 
 Task:
