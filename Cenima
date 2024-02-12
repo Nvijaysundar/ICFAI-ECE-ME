@@ -7,3 +7,13 @@ and if the row is 2, the price is 150/-. If all the seats are booked, the progra
    1  2  3  4  5
 1  0  0  0  1  0
 2  0  0  0  0  0
+
+Show Times -> Morning, Afternoon, Evening, Night
+
+Movie1 , Movie2 , Movie3 
+
+Movie2 
+  ->  Afternoon
+  ->  Seat availability
+             -> Proceed for Booking
+  
