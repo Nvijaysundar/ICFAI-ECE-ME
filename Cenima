@@ -4,6 +4,6 @@ an empty seat and 1 representing a booked seat. The program should allow the use
 should display a message indicating that the seat is not available. The program should also display the total price of the ticket, which depends on the row number: if the row is 1, the price is 200/-,
 and if the row is 2, the price is 150/-. If all the seats are booked, the program should display a message indicating that the seating is completed. Finally, the program should allow the user to exit the system
 
-1  2  3  4  5
+   1  2  3  4  5
 1  0  0  0  1  0
 2  0  0  0  0  0
