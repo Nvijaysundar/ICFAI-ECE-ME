@@ -1,0 +1,199 @@
+package com.Dashboard;
+
+import java.util.HashSet;
+import java.util.Scanner;
+
+public class Executor {
+	static HashSet<User> database = new HashSet<User>();
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		while (true) {
+			System.out.println("1.Add User\n2.Remove User\n3.Add Interest\n4.Remove"
+					+ " Interest\n5.recomm\n6.Show interest\n7.Exit");
+			switch (Integer.parseInt(sc.nextLine())) {
+			case 1:
+				addNewUser(sc);
+				break;
+			case 2:
+				if (removeUser(sc))
+					System.out.println("User Removed");
+				else
+					System.out.println("User Not Found");
+				break;
+			case 3:
+				addIntrest(sc);
+				break;
+			case 4:
+				removeInterest(sc);
+				break;
+			case 5:
+				Recomm(sc);
+				break;
+			case 6:
+				showInterest(sc);
+				break;
+			case 7:
+				sc.close();
+				System.out.println("Thankyou");
+				System.exit(0);
+			}
+		}
+	}
+
+	private static void showInterest(Scanner sc) {
+			System.out.println("Enter Username: ");
+			String username = sc.nextLine();
+			if(!database.isEmpty())
+			{
+				for(User temp : database)
+				{
+					if(temp.username.equalsIgnoreCase(username)) {
+						System.out.println(temp.toString());
+						return;
+					}
+				}
+			}
+			else
+			{
+				System.out.println("No users");
+			}
+			
+	}
+
+	private static void Recomm(Scanner sc) {
+		System.out.println("Enter user1");
+		String usern1 = sc.nextLine();
+		System.out.println("Enter User 2");
+		String usern2 = sc.nextLine();
+		User u1 = null, u2 = null;
+		for (User temp : database) {
+			if (temp.username.equalsIgnoreCase(usern1)) {
+				u1 = temp;
+			}
+			if (temp.username.equalsIgnoreCase(usern2)) {
+				u2 = temp;
+			}
+		}
+
+		if (u1 != null && u2 != null) {
+			u1.findCommon(u2);
+		} else
+			System.out.println("One of User Not Found");
+	}
+
+	private static void removeInterest(Scanner sc) {
+		System.out.println("Enter Username: ");
+		String username = sc.nextLine();
+		if (!database.isEmpty()) {
+			for (User temp : database) {
+				if (temp.username.equalsIgnoreCase(username)) {
+					String inter = sc.nextLine().toLowerCase();
+					if (temp.interest.remove(inter))
+						System.out.println("Iterest Removed");
+					else
+						System.out.println("Interest Not FOunf");
+					return;
+				}
+			}
+		}
+		else
+		{
+			System.out.println("No users");
+		}
+	}
+
+	private static void addIntrest(Scanner sc) {
+		System.out.println("Enter Username: ");
+		String username = sc.nextLine();
+		if (!database.isEmpty()) {
+			for (User temp : database) {
+				if (temp.username.equalsIgnoreCase(username)) {
+					String inter = sc.nextLine().toLowerCase();
+					if (inter.contains(",")) {
+						String[] mulint = inter.split(",");
+						for (String temp2 : mulint)
+							temp.interest.add(temp2);
+					} else
+						temp.interest.add(inter);
+				}
+				return;
+			}
+		}
+		else
+		{
+			System.out.println("No users");
+		}
+	}
+
+	private static boolean removeUser(Scanner sc) {
+		System.out.println("Enter Username: ");
+		String username = sc.nextLine();
+		boolean flag = false;
+		if (!database.isEmpty()) {
+			for (User temp : database) {
+				if (temp.username.equalsIgnoreCase(username)) {
+					database.remove(temp);
+					flag = true;
+					return flag;
+				}
+			}
+		}
+		else
+		{
+			System.out.println("No users");
+		}
+		return flag;
+	}
+
+	private static void addNewUser(Scanner sc) {
+		System.out.println("Enter UserName : ");
+		String username = sc.nextLine();
+		if (!database.isEmpty()) {
+			for (User temp : database) {
+				if (temp.username.equalsIgnoreCase(username)) {
+					System.out.println("User Name Already Exits");
+					return;
+				}
+			}
+		}
+		database.add(new User(username));
+	}
+}
+---------------------------------
+package com.Dashboard;
+
+import java.util.HashSet;
+
+public class User {
+	HashSet<String> interest = null;
+	String username;
+	
+	User(String username)
+	{
+		this.username = username;
+		interest = new HashSet<String>();
+	}
+	
+	public String toString()
+	{
+		return this.interest.toString();
+	}
+
+	public void findCommon(User otheruser) {
+		HashSet<String> common  = new HashSet<String>();
+		for(String temp : this.interest)
+		{
+			if(otheruser.interest.contains(temp))
+				common.add(temp);
+		}
+		if(common.isEmpty())
+			System.out.println("Recommondatation : NO");
+		else
+		{
+			System.out.println("Recommondatation : Yes");
+			System.out.println(common.toString());
+		}
+	}
+	
+}
